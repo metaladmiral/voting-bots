@@ -1,5 +1,6 @@
 from random import randint
 import time
+import sys
 from fake_useragent import UserAgent
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.keys import Keys
@@ -13,7 +14,10 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 import logging
 
-logging.basicConfig(filename='voting_bot.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+arguments = sys.argv
+user_arguments = arguments[1:]
+filename = 'voting_log_batch'+user_arguments[0]+'.log'
+logging.basicConfig(filename=filename, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # options = Options()
 # options.add_argument("-headless")
